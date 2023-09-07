@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification App</title>
+</head>
+<body>
+
+<script>
+  function showNotification() {
+    if (document.hasFocus()) {
+      if ('Notification' in window) {
+        Notification.requestPermission().then(function(permission) {
+          if (permission === 'granted') {
+            var notification = new Notification('Warning', {
+              body: 'Voooooscren!',
+            });
+          }
+        });
+      }
+    }
+  }
+
+  setInterval(showNotification, 30 * 60 * 1000);
+</script>
+
+</body>
+</html>
